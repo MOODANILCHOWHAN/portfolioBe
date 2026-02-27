@@ -14,7 +14,7 @@ const schema = new mongoose.Schema(
   { timestamps: true }
 );
 
-schema.index({ email: 1 }, { unique: true });
+// schema.index({ email: 1 }, { unique: true });
 
 schema.pre("save", async function (next) {
   if (!this.isModified("password")) return next();
