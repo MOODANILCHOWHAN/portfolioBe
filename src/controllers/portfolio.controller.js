@@ -6,8 +6,9 @@ const TIER_RANK = { open: 0, plus: 1, pro: 2 };
 
 // POST /api/portfolio
 exports.save = catchAsync(async (req, res, next) => {
-  if (TIER_RANK[req.body.tier] > TIER_RANK[req.user.plan])
-    return next(new AppError(`A ${req.body.tier} subscription is required.`, 403));
+  //commented because of testing the all the portfoliols
+  // if (TIER_RANK[req.body.tier] > TIER_RANK[req.user.plan])
+  //   return next(new AppError(`A ${req.body.tier} subscription is required.`, 403));
 
   const portfolio = await Portfolio.findOneAndUpdate(
     { userId: req.user._id },
